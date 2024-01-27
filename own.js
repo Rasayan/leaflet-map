@@ -7,3 +7,17 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(mymap);
 L.marker([22.481358, 88.377492]).addTo(mymap)
     .bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
+
+// making a fixed pop-up 
+var popup = L.popup()
+    .setLatLng([22.399358, 88.277492])
+    .setContent("I am a standalone popup.")
+    .openOn(mymap);
+
+
+// finding latitude // longitude on click
+function onMapClick(e) {
+    alert("You clicked the map at " + e.latlng);
+}
+    
+mymap.on('click', onMapClick);
